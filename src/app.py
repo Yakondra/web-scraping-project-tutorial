@@ -56,6 +56,7 @@ conn.commit()
 for fila in cursor.execute("SELECT * FROM income"):
     print(fila)
 
+
 #GRAPHICS
 
 
@@ -71,7 +72,8 @@ plt.tight_layout()
 plt.show()
 
 
-fig, axis = plt.subplots(figsize = (10, 5))
+
+fig, axis = plt.subplots(figsize = (8, 4))
 
 tesla_quarterly["Quarter date"] = pd.to_datetime(tesla_quarterly["Quarter date"])
 tesla_quarter_year = tesla_quarterly.groupby(tesla_quarterly["Quarter date"].dt.year).sum().reset_index()
@@ -82,7 +84,8 @@ plt.tight_layout()
 plt.show()
 
 
-fig, axis = plt.subplots(figsize = (10, 5))
+
+fig, axis = plt.subplots(figsize = (8, 4))
 
 tesla_monthly = tesla_quarterly.groupby(tesla_quarterly["Quarter date"].dt.month).sum().reset_index()
 sns.barplot(data = tesla_monthly, x = "Quarter date", y = "Incomes")
